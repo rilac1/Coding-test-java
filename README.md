@@ -17,3 +17,30 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 ```
+
+### ex)
+```java
+in:
+3
+0 3
+1 5
+45 50
+
+Scanner sc = new Scanner(System.in);
+int T = sc.nextInt();
+for(int i = 0; i < T; i++){
+    int X=in.nextInt();
+    int Y=in.nextInt();
+}
+        
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+int T = Integer.parseInt(br.readLine());
+long[] startPoint = new long[T];
+long[] endPoint = new long[T];
+for(int i = 0 ; i<T ; i++ ){
+    StringTokenizer st=new StringTokenizer(br.readLine()," ");
+    startPoint[i]=Integer.parseInt(st.nextToken());
+    endPoint[i]=Integer.parseInt(st.nextToken());
+}
+
+```
