@@ -42,5 +42,29 @@ for(int i = 0 ; i<T ; i++ ){
     startPoint[i]=Integer.parseInt(st.nextToken());
     endPoint[i]=Integer.parseInt(st.nextToken());
 }
-
 ```
+
+## for
+
+
+
+## Linked List
+```java
+import java.util.LinkedList;
+LinkedList<Integer> arr = new LinkedList<Integer>();
+```
+### Methods
+#### 삽입
+- `add([value])`
+- `add(index, [value])`
+
+#### 변경
+- `set(index, [value])`
+
+#### 제거
+- `remove([value])`
+- `remove(index)`
+
+#### 값 존재 확인
+- `boolean contains = arr.contains([value]);`
+- `int index = arr.indexOf([value])`

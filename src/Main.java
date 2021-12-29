@@ -1,15 +1,31 @@
-import java.io.*;
 import java.util.*;
 
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    public static void main(String[] args) throws IOException {
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        LinkedList<Integer> q = new LinkedList<>();
+        LinkedList<Integer> target = new LinkedList<>();
+        for (int i=1; i<=N; i++) q.add(i);
+        for (int i=0; i<M; i++) target.add(sc.nextInt());
 
-        for (int i=0; i<N; i++) {
+        for (int t : target) {
+            if (q.get(0)==t) q.remove(0);
+            else {
+                if t
+            }
+        }
+    }
+
+    static class Dequeue {
+        private LinkedList<Integer> data = new LinkedList<>();
+        public Dequeue(int n) {
+            for (int i=1; i<=n; i++)
+                data.add(i);
+        }
+        public void pop() {
 
         }
-
-
     }
 }
