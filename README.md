@@ -13,9 +13,10 @@ String s = sc.nextLine();
 
 ### BufferedReader
 ```java
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+import java.io.*;
+public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+}
 ```
 
 ### ex)
@@ -29,8 +30,8 @@ in:
 Scanner sc = new Scanner(System.in);
 int T = sc.nextInt();
 for(int i = 0; i < T; i++){
-    int X=in.nextInt();
-    int Y=in.nextInt();
+    int X=sc.nextInt();
+    int Y=sc.nextInt();
 }
         
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,10 +44,6 @@ for(int i = 0 ; i<T ; i++ ){
     endPoint[i]=Integer.parseInt(st.nextToken());
 }
 ```
-
-## for
-
-
 
 ## Linked List
 ```java
@@ -68,3 +65,14 @@ LinkedList<Integer> arr = new LinkedList<Integer>();
 #### 값 존재 확인
 - `boolean contains = arr.contains([value]);`
 - `int index = arr.indexOf([value])`
+
+
+## Heap
+```java
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(\
+        (Integer o1, Integer o2) -> (-Ingeger.compare(o1,o2)));
+```
+- add
+- remove
+- peek
