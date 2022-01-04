@@ -74,5 +74,65 @@ PriorityQueue<Integer> maxHeap = new PriorityQueue<>(\
         (Integer o1, Integer o2) -> (-Ingeger.compare(o1,o2)));
 ```
 - add
-- remove
+- poll
 - peek
+- remove
+
+## Djikstra
+```java
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int D = Integer.parseInt(st.nextToken());
+
+        ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>();
+        for (int i=0; i<10000; i++) graph.add(new ArrayList<Node>());
+
+        for (int i=0; i<N; i++) {
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+            graph.get(a).add(new Node(b, c));
+        }
+
+        int[] dist = new int[10000];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        PriorityQueue<Node> q = new PriorityQueue<>();
+        q.add(new Node(0,0));
+        dist[0] = 0;
+        while (!q.isEmpty()) {
+            Node cur = q.poll();
+            if (dist[cur.dest] == cur.cost) {
+                for (Node next : graph.get(cur.dest)) {
+                    if (dist[next.dest] > next.cost + cur.cost) {
+                        dist[next.dest] = next.cost + cur.cost;
+                        q.add(new Node(next.dest, dist[next.dest]));
+                    }
+                }
+            }
+        }
+        System.out.println(dist[50]);
+    }
+
+    static class Node implements Comparable<Node>{
+        int dest;
+        int cost;
+        public Node(int dest, int cost) {
+            this.dest = dest;
+            this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Node node) {
+            return Integer.compare(this.cost, node.cost);
+        }
+    }
+}
+```
