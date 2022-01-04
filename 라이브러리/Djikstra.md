@@ -17,30 +17,31 @@ class Node implements Comparable<Node>{
 }
 
 class Graph {
-    int mapLength;
-    private ArrayList<Node> map = new ArrayList<ArrayList<Node>>();
-    public Graph(int mapLength) {
-        this.mapLength = mapLength;
-        for (int i=0; i<this.mapLength+1; i++)
-            map.add(new ArrayList<Node>());
+    private int length;
+    private ArrayList<Node>[] map;
+    
+    public Graph(int n) {
+        length = n;
+        for (int i=0; i < length+1; i++)
+            map[i] = new ArrayList<>();
     }
 
     public void input(int origin, int destination, int weight) {
-        graph.get(origin).add(new Node(destintion, weight));
+        map[origin].add(new Node(destintion, weight));
     }
     
     public int[] dijkstra(int origin) {
-        private int[] distance = new int[mapLength+1];
+        private int[] distance = new int[length+1];
         Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[origin] = 0;
         
         PriorityQueue<Node> heap = new PriorityQueue<>();
-        heap.add(new Node(origin,0));
-        distance[origin] = 0;
+        heap.add(new Node(origin, 0));
         while (!heap.isEmpty()) {
             Node current = heap.poll();
             if (current.weight != distance[current.destination])
                 continue;
-            for (Node next : map.get(current.destination)) {
+            for (Node next : map[current.destination]) {
                 if (distance[next.destination] > distance[current.destination] + next.weight) {
                     distance[next.destination] = distance[current.destination] + next.weight;
                     heap.add(new Node(next.destination, distance[next.destination]));
