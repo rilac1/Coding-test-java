@@ -1,61 +1,8 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    static class Node {
-        int point;
-        int time;
-        public Node(int point, int time) {
-            this.point = point;
-            this.time = time;
-        }
-    }
+    public static void main(String[] args) throws IOException{
 
-    static class Graph {
-        private int endPoint;
-        private Queue<Node> q;
-        private boolean[] visited;
-
-        public Graph(int startPoint, int endPoint) {
-            this.endPoint = endPoint;
-            q = new LinkedList<>();
-            visited = new boolean[200000];
-            Arrays.fill(visited, false);
-            q.offer(new Node(startPoint, 0));
-            visited[startPoint] = true;
-        }
-
-        public int bfs() {
-            while(!q.isEmpty()) {
-                Node current = q.poll();
-                int point = current.point;
-                int time = current.time;
-                if (point == endPoint)
-                    return current.time;
-                if (point<endPoint) {
-                    if (!visited[point*2]) {
-                        q.offer(new Node(point * 2, time + 1));
-                        visited[point*2] = true;
-                    }
-                    if (!visited[point+1]) {
-                        q.offer(new Node(point + 1, time + 1));
-                        visited[point + 1] = true;
-                    }
-                }
-                if (point > 0 && !visited[point-1]) {
-                    q.offer(new Node(point - 1, time + 1));
-                    visited[point-1] = true;
-                }
-            }
-            return -1;
-        }
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int K = sc.nextInt();
-
-        Graph graph = new Graph(N,K);
-        System.out.println(graph.bfs());
     }
 }
