@@ -31,8 +31,8 @@ queue.clear();
   - `add`
   - `remove`
 ```java
-Deque<Integer> stack = new ArrayDeque();
-Deque<Integer> deque = new ArrayDeque();
+Deque<Integer> stack = new ArrayDeque<>();
+Deque<Integer> deque = new ArrayDeque<>();
 
 // 추가
 deque.addFirst(1);      // push()와 동일
